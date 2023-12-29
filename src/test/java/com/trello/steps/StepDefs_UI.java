@@ -8,8 +8,8 @@ import org.openqa.selenium.Keys;
 
 public class StepDefs_UI {
     LoginPage loginPage = new LoginPage();
-    public static String USER = ConfigurationReader.getProperty("username");
-    public static String PASSWORD = ConfigurationReader.getProperty("password");
+    private static final String USER = ConfigurationReader.getProperty("username");
+    private static final String PASSWORD = ConfigurationReader.getProperty("password");
 
 
     @Given("User logged in with valid credentials and is on the Trello home page")
