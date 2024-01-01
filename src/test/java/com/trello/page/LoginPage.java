@@ -29,4 +29,8 @@ public class LoginPage {
     @FindBy(xpath = "//button[@data-testid='account-menu-logout']")
     public WebElement abmeldenButton;
 
+    @FindBy(xpath = "//*[@id=\"logout-submit\"]/span")
+    public WebElement audLogged;
+
+
 }
