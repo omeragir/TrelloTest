@@ -4,7 +4,6 @@ Feature: Workspace Create
     Given User logged in with valid credentials and is on the Trello home page
     When User creates a new Trello workspace with name "<WorkspaceName>"
     Then User choose type of the  WorkSpace
-    And User write descriptions
     Then User click continue button
     And User choose later options
     Then User see the workspace on the Ui part

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class WorkSpace_Board_Page {
 
     public WorkSpace_Board_Page() {
@@ -20,14 +22,14 @@ public class WorkSpace_Board_Page {
     @FindBy(xpath = "/html/body/div[3]/div/section/div/div/nav/ul/li[1]/button/span[2]")
     public WebElement createBoard;
 
-    @FindBy(xpath = "//*[@id=\"1704109017860-create-team-org-display-name\"]")
+    @FindBy(xpath = "//input[@type='text']")
     public WebElement workSpaceName;
 
-    @FindBy(xpath = "//*[@id=\"layer-manager-overlay\"]/div/div/div/div/div[1]/form/div/div/div/div/div[1]/div")
+    @FindBy(xpath = "//div[@class=' css-1og2rpm']")
     public WebElement workSpaceType;
 
-    @FindBy(xpath = "//*[@id=\"layer-manager-overlay\"]/div/div/div/div/div[1]/form/div/div/div/div/div[1]/div")
-    public WebElement workSpaceTypeSales;
+    @FindBy(xpath = "//input[@id=\"teamTypeSelect\"][1]")
+    public WebElement workSpaceTypeBildung;
 
     @FindBy(xpath = "//*[@id=\"1704105690781-create-team-org-description\"]")
     public WebElement workSpaceDesc;
@@ -35,8 +37,8 @@ public class WorkSpace_Board_Page {
     @FindBy(xpath = "//*[@id=\"layer-manager-overlay\"]/div/div/div/div/div[1]/form/footer/button")
     public WebElement workSpaceContinueButton;
 
-    @FindBy(xpath = "//*[@id=\"layer-manager-overlay\"]/div/div/div/div/div[1]/a")
-    public WebElement workSpaceInviteLater;
+    @FindBy(xpath = " //a[@data-testid='show-later-button']")
+    public WebElement IwillDoThisLater;
 
     @FindBy(xpath = "/html/body/div[3]/div/section/div/form/div[1]/label/input")
     public WebElement boardTitle;
@@ -62,7 +64,8 @@ public class WorkSpace_Board_Page {
     @FindBy(xpath = "/html/body/div[3]/div/section/div/button")
     public WebElement PermanentlyDeleteButton ;
 
-
+    @FindBy(xpath = "//*[@id=\"header\"]/div[1]/div/div[1]/button[1]/span[1]")
+    public List<WebElement> workSpace;
 
 
 

@@ -4,8 +4,14 @@ import com.trello.page.LoginPage;
 import com.trello.page.WorkSpace_Board_Page;
 import com.trello.utilities.BrowserUtilities;
 import com.trello.utilities.ConfigurationReader;
+import com.trello.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class StepDefs_UI {
@@ -35,34 +41,47 @@ public class StepDefs_UI {
         BrowserUtilities.waitFor(1);
         workSpaceBoardPage.workSpaceName.sendKeys(name);
         BrowserUtilities.waitFor(1);
-        workSpaceBoardPage.workSpaceContinueButton.click();
-        this.name=name;
-
-
+        StepDefs_UI.name = name;
     }
 
     @Then("User choose type of the  WorkSpace")
     public void user_choose_type_of_the_work_space() {
+        workSpaceBoardPage.workSpaceType.click();
+        workSpaceBoardPage.workSpaceType.submit();
 
     }
 
-    @Then("User write descriptions")
-    public void user_write_descriptions() {
 
-    }
 
     @Then("User click continue button")
     public void user_click_continue_button() {
+        workSpaceBoardPage.workSpaceContinueButton.click();
+        BrowserUtilities.waitFor(2);
 
     }
 
     @Then("User choose later options")
     public void user_choose_later_options() {
-
+        workSpaceBoardPage.IwillDoThisLater.click();
     }
 
     @Then("User see the workspace on the Ui part")
     public void user_see_the_workspace_on_the_ui_part() {
+
+        boolean workSpaceFound=false;
+        for (WebElement work:workSpaceBoardPage.workSpace){
+            String titleAttribute=work.getAttribute("title");
+
+            if (titleAttribute.contains(name)){
+                workSpaceFound=true;
+                break;
+            }
+        }
+       if (workSpaceFound){
+           Assertions.assertTrue(true,"Workspace with title containing the specified name exist");
+       }else {
+           Assertions.assertTrue(false,"No workspace with title containing the specified name found");
+       }
 
     }
 
